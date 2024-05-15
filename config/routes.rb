@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :profile, only: %i[index show new create destroy edit update]
   resources :next, only: %i[index show new create destroy edit update]
   resources :exist, only: %i[index show new create destroy edit update]
+  resources :page, only: %i[index show new create destroy edit update]
 end

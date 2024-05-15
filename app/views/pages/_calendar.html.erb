@@ -3,8 +3,6 @@
   <div class="text-sm  text-gray-400 dark:text-gray-500 w-full text-center" >
     <!-- styling for Calender using tailwinds css -->
     <%= month_calendar(events: @consultations) do |date, consultations| %>
-
-      <% if can? :read, consultations %>
         <%= date.day %>
           <% consultations.each do |consultation| %>
             <% if can? :read, consultation %>
@@ -19,7 +17,6 @@
                 </p>
               </div>
             <% end %>
-          <% end %>
       <% end %>
     <% end %>
 
