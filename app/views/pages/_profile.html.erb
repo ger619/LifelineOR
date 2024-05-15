@@ -5,7 +5,7 @@
       <div class="flex w-full justify-between grid-cols-2">
         <div>
           <% if profile.avatar.attached? %>
-            <%= image_tag(profile.avatar, class: "h-24 w-24 rounded") %>
+            <%= image_tag(profile.avatar, class: "h-24 w-40 rounded") %>
           <% else %>
             <%= image_tag('logo.png', class: "h-24 w-24 rounded") %>
           <% end %>
@@ -13,12 +13,12 @@
         <div>
           <% if can? :read, profile %>
             <%= link_to edit_profile_path(profile.id) do %>
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
+              <button class="bg-blue-500 text-sm hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4 ">
                 <!--SVG ICON ADD more information-->
-                <svg class="w-4 h-4 inline-block" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
-                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 inline-block">
+                  <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z" clip-rule="evenodd" />
                 </svg>
-                Add Profile Details
+                Add Details
               </button>
             <% end %>
           <% end %>
