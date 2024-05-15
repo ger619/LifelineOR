@@ -1,42 +1,70 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <section class="bg-gray-50 dark:bg-gray-900">
-  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-    <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-      <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-        <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-          Sign in to your account
-        </h1>
-        <form class="space-y-4 md:space-y-6" action="#">
-          <div>
-            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "name@company.com", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
-          </div>
-          <div>
-            <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-            <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••••", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+<div class="flex h-screen w-full overflow-x-hidden">
+ <%= render "devise/shared/homepage" %>
+  <section class=" w-1/2 relative bg-cover outline-none" style="background-image: url('<%= asset_path('bg-color.png') %>');">
+  <%= image_tag('blurred_circle.png', alt: 'blurred circle', class: 'absolute -right-32 top-24 opacity-70') %>
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 ">
+      <div class="w-full  md:mt-0 sm:max-w-md xl:p-0 ">
+        <div class="p-6 space-y-4 md:space-y-6 sm:p-8 ">
+          
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <section class="font-merienda">
+              
+                  <div class="w-full bg-gradient-to-r from-gray-100 to-gray-300 rounded-lg  md:mt-0 sm:max-w-md xl:p-0 backdrop-filter backdrop-opacity-40 bg-opacity-65">
+                    <div class="p-8 space-y-4 md:space-y-6 sm:p-8">
+                    
+                      <h1 class="text-xl font-extrabold leading-tight tracking-tight text-scooter-600 md:text-2xl ">
+                        Sign in to your account
+                      </h1>
+                      <form class="space-y-4 md:space-y-6" action="#">
+                        <div>
+                          <label for="email" class="block mb-2 text-base font-semibold text-scooter-700  ">Your email</label>
+                          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "name@company.com", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
 
-          </div>
-          <div class="flex items-center justify-between">
-            <div class="flex items-start">
-              <% if devise_mapping.rememberable? %>
-                  <div class="flex items-center h-5">
-                    <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" %>
+                        </div>
+                        <div>
+                          <label for="password" class="block mb-2 text-base font-semibold text-scooter-700">Password</label>
+                          <%= f.password_field :password, autocomplete: "current-password", placeholder: "••••••••", required: true, class: "bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+
+                        </div>
+                        <div class="flex items-center justify-between">
+                          <div class="flex items-start">
+                            <% if devise_mapping.rememberable? %>
+                                <div class="flex items-center h-5">
+                                  <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800" %>
+                                </div>
+                            <% end %>
+                            <div class="ml-3 text-sm">
+                              <label for="remember" class="text-scooter-700 ">Remember me</label>
+                            </div>
+                          </div>
+                          <a href="#" class="text-sm font-medium "><%= render "devise/shared/forgot_pass" %></a>
+                        </div>
+                        <%= f.submit "Log in", class: "w-full text-scooter-950 hover:text-white bg-primary-600 hover:bg-scooter-950 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-scooter-950" %>
+                        <p class="text-sm font-light text-scooter-950 ">
+                          Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500"><%= render "devise/shared/links" %></a>
+                        </p>
+                      </form>
+                    </div>
                   </div>
-              <% end %>
-              <div class="ml-3 text-sm">
-                <label for="remember" class="text-gray-500 dark:text-gray-300">Remember me</label>
-              </div>
-            </div>
-            <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"><%= render "devise/shared/forgot_pass" %></a>
-          </div>
-          <%= f.submit "Log in", class: "w-full bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center border border-[#000]" %>
-          <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-            Don’t have an account yet? <a href="#" class="font-medium text-primary-600 hover:underline dark:text-primary-500"><%= render "devise/shared/links" %></a>
-          </p>
-        </form>
+              
+            </section>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+   
+  </section>
+</div>
+
+
+
+<% end %>
+
+
+
+
+
+
+
 <% end %>
