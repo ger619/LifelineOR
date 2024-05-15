@@ -3,16 +3,10 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    if user.id == false
-      cannot :manage, :all
-    else
-      can :manage, Bio, user_id: user.id
-      can :manage, Consultation, user_id: user.id
-      can :manage, Profile, user_id: user.id
-      can :manage, Next, user_id: user.id
-      can :manage, Exist, user_id: user.id
+    return unless user.id != :user_id
+      can :manage, :all
 
-    end
+
 
     # Define abilities for the user here. For example:
     #

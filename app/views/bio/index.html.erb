@@ -1,9 +1,25 @@
-<div class="p-4 sm:ml-64 text-black">
-    <% @bio.each do |bio|  %>
-      <%= bio.user_id %>
-      <%= bio.date_of_birth %>
-      <%= bio.language  %>
-      <%= bio.home_town %>
-      <%= bio.about_me %>
-    <% end %>
+<div class="p-4 sm:ml-64">
+  <div class="p-1 rounded-lg mt-14">
+    <!--This is the working code-->
+        <div class="p-4 ml-32 text-black">
+            <% @bio.each do |bio|  %>
+              <% if can? :read, bio %>
+
+                <div>
+                  Date of Birth: <%= bio.date_of_birth %>
+                </div>
+                <div>
+                  Language Spoken: <%= bio.language  %>
+                </div>
+                <div>
+                  <%= bio.home_town %>
+                </div>
+                <div>
+                  <%= render html: raw(bio.about_me) %>
+                </div>
+
+              <% end %>
+          <% end %>
+        </div>
+  </div>
 </div>

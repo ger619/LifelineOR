@@ -19,7 +19,7 @@ class BioController < ApplicationController
     @bio.user_id = current_user.id
     respond_to do |format|
       if @bio.save
-        format.html { redirect_to bio_index_path, notice: 'Bio was successfully created.' }
+        format.html { redirect_to page_index_path, notice: 'Bio was successfully created.' }
       else
         format.html { redirect_to bio_index_url notice: 'Failure' }
       end

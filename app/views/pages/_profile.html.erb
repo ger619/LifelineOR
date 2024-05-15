@@ -5,7 +5,7 @@
       <div class="flex w-full justify-between grid-cols-2">
         <div>
           <% if profile.avatar.attached? %>
-            <%= image_tag(profile.avatar, class: "h-24 w-24 rounded") %>
+            <%= image_tag(profile.avatar, class: "h-24 w-40 rounded") %>
           <% else %>
             <%= image_tag('logo.png', class: "h-24 w-24 rounded") %>
           <% end %>
