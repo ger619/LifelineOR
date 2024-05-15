@@ -4,9 +4,8 @@ class Ability
   def initialize(user)
     user ||= User.new
     return unless user.id != :user_id
-      can :manage, :all
 
-
+    can :manage, :all
 
     # Define abilities for the user here. For example:
     #
