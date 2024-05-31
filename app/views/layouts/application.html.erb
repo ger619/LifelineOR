@@ -9,6 +9,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= favicon_link_tag asset_path('logo.png') %>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.1.1/dist/flowbite.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
 
     <script type="text/javascript" src="https://cdn.tiny.cloud/1/51we9eiu22w8w2p4fijko8ri7e3d66dm3jd9rbbcdia8l1em/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -33,12 +35,16 @@
 
   <body>
     <main>
-      <%= render "layouts/alert" %>
       <% if current_user %>
         <%= render "layouts/sidebar" %>
+
         <!-- We create a link to log out -->
       <% end %>
       <%= yield %>
+
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+
 
     </main>
   </body>
