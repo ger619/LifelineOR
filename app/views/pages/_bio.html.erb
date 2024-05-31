@@ -7,7 +7,7 @@
       <!--BUTTON TO ADD NEW INFORMATION-->
       <div class="p-4">
         <% @bio.each do |bio| %>
-          <% if can? :read, bio %>
+          <% if can? :manage, bio %>
             <%= link_to edit_bio_path(bio.id) do %>
               <p class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded p-4 ">
                 <!--SVG ICON ADD more information-->
@@ -62,7 +62,6 @@
                 </p>
               </div>
 
-
               <div>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">NHIF Number</h5>
                 <p class="text-sm font-extralight mb-2">
@@ -85,9 +84,6 @@
                   <%= bio.hospital_to_attend %>
                 </p>
               </div>
-
-
-
             </div>
           </div>
         </div>
