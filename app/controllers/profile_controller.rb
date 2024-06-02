@@ -6,9 +6,9 @@ class ProfileController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
-    @next = Next.where(user_id: current_user.id)
-    @exist = Exist.where(user_id: current_user.id)
-    @bio = Bio.where(user_id: current_user.id)
+    @next = Next.where(user_id: current_user)
+    @exist = Exist.where(user_id: current_user)
+    @bio = Bio.where(user_id: current_user)
   end
 
   def new
@@ -43,7 +43,9 @@ class ProfileController < ApplicationController
     @profile = Profile.find(params[:id])
     respond_to do |format|
       if @profile.update(profile_params)
-        format.html { redirect_to profile_url(@profile), notice: 'Profile was successfully updated.' }
+        format.html do
+          redirect_to profile_url(@profile), allow_other_host: true, notice: 'Profile was successfully updated.'
+        end
       else
         format.html { redirect_to profile_index_url, notice: 'Failure' }
       end
@@ -54,6 +56,6 @@ class ProfileController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :home_address, :phone_number, :occupation, :location,
-                                    :avatar, :user_id)
+                                    :avatar, :user_id, :qr_code)
   end
 end

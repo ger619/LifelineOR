@@ -1,5 +1,5 @@
 class NextController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[show]
 
   def index
     @next = Next.all
