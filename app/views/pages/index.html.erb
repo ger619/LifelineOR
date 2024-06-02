@@ -1,19 +1,19 @@
-<div class="p-4 sm:ml-64">
+<div class="p-4 sm:ml-64 bg-white">
   <div class="p-1 rounded-lg mt-14">
     <!--This is the working code-->
-    <div class="grid md:grid-cols-5  gap-4 mb-4">
+    <div class="grid md:grid-cols-5 gap-4 p-4 ">
       <div class="col-span-2">
-        <%= render "profile" %>
-        <%= render "nextofkin" %>
-        <%= render "exist" %>
+        <%= render partial: 'profile' %>
+        <%= render partial: 'nextofkin' %>
+        <%= render partial: 'exist' %>
       </div>
 
 
       <div class="col-span-3">
         <!-- General Information Area-->
-        <%= render "bio" %>
+        <%= render partial: "bio" %>
         <!-- Calender With Events-->
-        <%= render "calendar" %>
+        <%= render partial: "calendar" %>
 
       </div>
     </div>

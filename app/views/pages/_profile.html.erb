@@ -1,4 +1,4 @@
-<div class="flex flex-col rounded h-96 bg-gray-50 dark:bg-gray-800 p-4 mb-4">
+<div class="flex flex-col rounded h-96 bg-white p-4 mb-4 text-[#060606]">
   <% @profile.each do |profile| %>
     <% if can? :read, profile %>
       <!--This is the profile picture and Add Button-->
@@ -23,34 +23,36 @@
             <% end %>
           <% end %>
         </div>
-        <%= icon('fa-solid', 'truck-fast', class: 'mr-2') %>
       </div>
-      <div class="text-xl font-semibold mt-2 dark:text-white">
+      <div class="text-xl font-semibold mt-2 text-gray-500">
         <%= profile.first_name %> <%= profile.last_name %>
       </div>
       <div>
-        <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Email</h5>
-        <p class="text-sm font-bold mt-1 dark:text-white">
+        <h5 class="text-sm font-semibold mt-2 text-gray-800">
+          Email
+        </h5>
+        <p class="text-sm font-bold mt-1 text-gray-500 ">
           <% if current_user %>
             <%= current_user.email %>
           <% end %>
         </p>
       </div>
       <div>
-        <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Home Address</h5>
-        <p class="text-sm font-bold mt-1 dark:text-white">
+        <h5 class="text-sm font-semibold mt-2 text-gray-800">
+        Home Address</h5>
+        <p class="text-sm font-bold mt-1 text-gray-500">
           <%= profile.home_address %>
         </p>
       </div>
       <div>
-        <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Phone Number</h5>
-        <p class="text-sm font-bold mt-1 dark:text-white">
+        <h5 class="text-sm font-semibold mt-2 text-gray-800">Phone Number</h5>
+        <p class="text-sm font-bold mt-1 text-gray-500">
           <%= profile.phone_number %>
         </p>
       </div>
       <div>
-        <h5 class="text-sm font-semibold mt-2 dark:text-gray-500">Occupation</h5>
-        <p class="text-sm font-bold mt-1 dark:text-white">
+        <h5 class="text-sm font-semibold mt-2 text-gray-800">Occupation</h5>
+        <p class="text-sm font-bold mt-1 text-gray-500">
           <%= profile.occupation %>
         </p>
       </div>

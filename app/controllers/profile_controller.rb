@@ -1,12 +1,14 @@
 class ProfileController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: %i[show]
   def index
     @profile = Profile.all
-    @user = User.all
   end
 
   def show
     @profile = Profile.find(params[:id])
+    @next = Next.where(user_id: current_user.id)
+    @exist = Exist.where(user_id: current_user.id)
+    @bio = Bio.where(user_id: current_user.id)
   end
 
   def new

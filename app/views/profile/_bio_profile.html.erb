@@ -1,0 +1,14 @@
+<% @bio.each  do |bio|  %>
+  <div>
+    Date of Birth: <%= bio.date_of_birth %>
+  </div>
+  <div>
+    Language Spoken: <%= bio.language  %>
+  </div>
+  <div>
+    <%= bio.home_town %>
+  </div>
+  <div>
+    <%= render html: raw(bio.about_me) %>
+  </div>
+<% end %>
