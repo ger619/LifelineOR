@@ -1,41 +1,41 @@
 <div class="rounded bg-gray-50 dark:bg-gray-800 mb-4">
   <div>
 
-    <% @profile.each do |bio| %>
-      <% if can? :read, bio %>
+    <% @profile.each do |profile| %>
+      <% if can? :read, profile %>
         <div class="p-4">
-          <h5 class="text-xl text-[#000] dark:text-white p-4">
+          <h5 class="text-xl text-gray-500 text-gray-500 p-4">
             About Me
           </h5>
-          <div class="text-sm font-extralight dark:text-white  p-4">
-            <%= raw bio.about_me %>
+          <div class="text-sm font-extralight text-gray-500 p-4">
+            <%= raw profile.about_me %>
           </div>
-          <div class="text-[#060606] dark:text-white p-4">
+          <div class="text-gray-800 p-4">
             <div class="flex justify-start">
               <div class="gap-1 w-[50%]">
                 <h6 class="font-semibold mb-2 dark:text-gray-500">Date of Birth</h6>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.date_of_birth %>
+                  <%= profile.date_of_birth %>
                 </p>
                 <h6 class="font-semibold mb-2 dark:text-gray-500">Age</h6>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.age %>
+                  <%= profile.age %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Language Spoken</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.language %>
+                  <%= profile.language %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Home Town</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.home_town %>
+                  <%= profile.home_town %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">City</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.city %>
+                  <%= profile.city %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Country</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.country %>
+                  <%= profile.country %>
                 </p>
 
               </div>
@@ -43,27 +43,27 @@
               <div>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Health Insurance</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.health_insurance %>
+                  <%=profile.health_insurance %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">NHIF Number</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.nhif_number %>
+                  <%= profile.nhif_number %>
                 </p>
-                <h5 class="font-semibold mb-2 dark:text-gray-500">Nationality</h5>
+                <h5 class="font-semibold mb-2 text-gray-500">Nationality</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.nationality %>
+                  <%= profile.nationality %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Religion</h5>
-                <p class="text-sm font-extralight mb-2">
-                  <%= bio.religion %>
+                <p class="text-sm font-extralight mb-2 text-gray-800">
+                  <%= profile.religion %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Blood Group</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.blood_group %>
+                  <%= profile.blood_group %>
                 </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Hospital to Attend</h5>
                 <p class="text-sm font-extralight mb-2">
-                  <%= bio.hospital_to_attend %>
+                  <%= profile.hospital_to_attend %>
                 </p>
               </div>
             </div>
