@@ -1,9 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: %i[show_otp verify_otp]
 
-  def index
-    @profile = Profile.all
-  end
+  def index; end
 
   def disable_otp
     # current_user.otp_required_for_login = false
@@ -18,12 +16,9 @@ class UsersController < ApplicationController
       flash[:alert] = 'Invalid OTP code'
       redirect_to root_path
     end
-    @profile = Profile.all
   end
 
-  def show_otp
-    @profile = Profile.all
-  end
+  def show_otp; end
 
   def verify_otp
     verifier = Rails.application.message_verifier(:otp_session)
@@ -37,7 +32,6 @@ class UsersController < ApplicationController
       flash[:alert] = 'Invalid OTP code'
       redirect_to new_user_session_path
     end
-    @profile = Profile.all
   end
 
   def enable_otp_show_qr
@@ -50,7 +44,6 @@ class UsersController < ApplicationController
       @provisioning_uri = current_user.otp_provisioning_uri(label, issuer:)
       current_user.save!
     end
-    @profile = Profile.all
   end
 
   def enable_otp_verify
@@ -62,5 +55,4 @@ class UsersController < ApplicationController
       redirect_to enable_otp_show_qr_path, alert: 'Invalid OTP code.'
     end
   end
-  @profile = Profile.all
 end

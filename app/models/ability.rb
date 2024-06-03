@@ -5,8 +5,10 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
+    elsif user.present?
+      can :manage, [Consultation, Exist, Next, Profile], user_id: user.id
     else
-      can :manage, [Bio, Consultation, Exist, Next, Profile], user_id: user.id
+      can :read, :all
     end
 
     # Define abilities for the user here. For example:

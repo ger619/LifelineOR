@@ -1,0 +1,49 @@
+<div class="text-2xl text-gray-800 items-center p-4">
+
+  <div class="flex gap-3 items-center ">
+    <h5 class="text-sm font-semibold text-gray-800">
+      Name
+    </h5>
+    <p class="text-sm font-semibold text-gray-800">
+      <%= @profile.first_name %> <%= @profile.last_name %>
+    </p>
+  </div>
+
+  <div class="flex gap-3 ">
+    <h5 class="text-sm font-semibold text-gray-800">
+      Home Address
+    </h5>
+    <p class="text-sm font-bold  text-gray-500">
+      <%= @profile.home_town %>
+    </p>
+  </div>
+
+  <div class="flex gap-3 ">
+    <h5 class="text-sm font-semibold text-gray-800">
+      Phone Number
+    </h5>
+    <p class="text-sm font-bold  text-gray-500">
+      <%= @profile.phone_number %>
+    </p>
+  </div>
+
+
+  <div class="flex gap-3 ">
+    <h5 class="text-sm font-semibold  text-gray-800">
+      Occupation
+    </h5>
+    <p class="text-sm font-bold  text-gray-500">
+      <%= @profile.occupation %>
+    </p>
+  </div>
+  <div class="flex gap-3 ">
+    <h5 class="text-sm font-semibold  text-gray-800">
+      Age
+    </h5>
+    <p class="text-sm font-bold  text-gray-500">
+      <%= @profile.age %>
+    </p>
+  </div>
+
+
+</div>
