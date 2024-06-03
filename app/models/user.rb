@@ -6,14 +6,13 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # After User is create create a bio
-  after_create :create_bio, :create_profile
-  def create_bio
-    Bio.create(user_id: id)
-  end
+  after_create :create_profile
 
   def create_profile
     Profile.create(user_id: id)
+    Bio.create(user_id: id)
   end
+
   has_one :bio, foreign_key: :user_id, class_name: 'Bio', dependent: :destroy
   has_one :profile, foreign_key: :user_id, class_name: 'Profile', dependent: :destroy
   has_one :profile, foreign_key: :user_id, class_name: 'Profile', dependent: :destroy

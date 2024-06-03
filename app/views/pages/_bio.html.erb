@@ -11,11 +11,9 @@
             <%= link_to edit_bio_path(bio.id) do %>
               <p class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-bold py-2 px-4 rounded p-4 ">
                 <!--SVG ICON ADD more information-->
-
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 inline-block">
                   <path d="M5.25 6.375a4.125 4.125 0 1 1 8.25 0 4.125 4.125 0 0 1-8.25 0ZM2.25 19.125a7.125 7.125 0 0 1 14.25 0v.003l-.001.119a.75.75 0 0 1-.363.63 13.067 13.067 0 0 1-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 0 1-.364-.63l-.001-.122ZM18.75 7.5a.75.75 0 0 0-1.5 0v2.25H15a.75.75 0 0 0 0 1.5h2.25v2.25a.75.75 0 0 0 1.5 0v-2.25H21a.75.75 0 0 0 0-1.5h-2.25V7.5Z" />
                 </svg>
-
                 Add Information
               </p>
             <% end %>
@@ -40,6 +38,10 @@
                 <p class="text-sm font-extralight mb-2">
                   <%= bio.date_of_birth %>
                 </p>
+                <h6 class="font-semibold mb-2 dark:text-gray-500">Age</h6>
+                <p class="text-sm font-extralight mb-2">
+                  <%= bio.age %>
+                </p>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Language Spoken</h5>
                 <p class="text-sm font-extralight mb-2">
                   <%= bio.language %>
@@ -56,13 +58,14 @@
                 <p class="text-sm font-extralight mb-2">
                   <%= bio.country %>
                 </p>
+
+              </div>
+
+              <div>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">Health Insurance</h5>
                 <p class="text-sm font-extralight mb-2">
                   <%= bio.health_insurance %>
                 </p>
-              </div>
-
-              <div>
                 <h5 class="font-semibold mb-2 dark:text-gray-500">NHIF Number</h5>
                 <p class="text-sm font-extralight mb-2">
                   <%= bio.nhif_number %>

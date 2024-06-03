@@ -43,7 +43,9 @@ class BioController < ApplicationController
     @bio = Bio.find(params[:id])
     respond_to do |format|
       if @bio.update(bio_params)
-        format.html { redirect_to bio_index_path(@bio), notice: 'Bio was successfully updated.' }
+        format.html do
+          redirect_to bio_index_path(@bio), notice: 'Bio was successfully updated.'
+        end
       else
         format.html { redirect_to bio_index_url, notice: 'Failure' }
       end
