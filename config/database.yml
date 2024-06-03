@@ -81,6 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: LifelineOR_production
-  username: lifelineOR
+  url: <%= ENV["DATABASE_URL"] %>
+  database: Lifeline_production
+  username: lifeline
   password: <%= ENV["LIFELINE_DATABASE_PASSWORD"] %>
