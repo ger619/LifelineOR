@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_05_31_101738) do
+ActiveRecord::Schema[7.0].define(version: 2024_06_03_134316) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -41,25 +41,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_31_101738) do
     t.uuid "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "bios", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.date "date_of_birth"
-    t.string "language"
-    t.string "home_town"
-    t.string "city"
-    t.string "country"
-    t.string "about_me"
-    t.string "health_insurance"
-    t.string "nhif_number"
-    t.string "nationality"
-    t.string "religion"
-    t.string "blood_group"
-    t.string "hospital_to_attend"
-    t.uuid "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_bios_on_user_id"
   end
 
   create_table "consultations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -102,6 +83,18 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_31_101738) do
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "date_of_birth"
+    t.string "language"
+    t.string "home_town"
+    t.string "city"
+    t.string "about_me"
+    t.string "health_insurance"
+    t.string "nhif_number"
+    t.string "nationality"
+    t.string "religion"
+    t.string "blood_group"
+    t.string "hospital_to_attend"
+    t.string "country"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
@@ -123,7 +116,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_05_31_101738) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "bios", "users"
   add_foreign_key "consultations", "users"
   add_foreign_key "exists", "users"
   add_foreign_key "nexts", "users"

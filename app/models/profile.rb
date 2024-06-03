@@ -3,6 +3,13 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :qr_code
 
+  def age
+    return unless date_of_birth.present?
+
+    now = Time.now.utc.to_date
+    now.year - date_of_birth.year - (date_of_birth.to_date.change(year: now.year) > now ? 1 : 0)
+  end
+
   include Rails.application.routes.url_helpers
 
   after_create :generate_qr

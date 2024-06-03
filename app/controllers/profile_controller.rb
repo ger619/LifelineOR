@@ -1,14 +1,11 @@
 class ProfileController < ApplicationController
-  before_action :authenticate_user!, except: %i[show]
+  before_action :authenticate_user!, except: %i[index show]
   def index
     @profile = Profile.all
   end
 
   def show
     @profile = Profile.find(params[:id])
-    @next = Next.where(user_id: current_user)
-    @exist = Exist.where(user_id: current_user)
-    @bio = Bio.where(user_id: current_user)
   end
 
   def new
@@ -56,6 +53,8 @@ class ProfileController < ApplicationController
 
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :home_address, :phone_number, :occupation, :location,
-                                    :avatar, :user_id, :qr_code)
+                                    :avatar, :user_id, :qr_code, :date_of_birth, :language, :home_town, :city, :country,
+                                    :about_me, :health_insurance, :nhif_number, :nationality, :religion, :blood_group,
+                                    :hospital_to_attend)
   end
 end

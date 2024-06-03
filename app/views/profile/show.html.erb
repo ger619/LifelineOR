@@ -1,10 +1,9 @@
 <div class="p-4 sm:ml-64 mt-14">
   <div> This is the show Page We shall Display a Profile 1</div>
-  <%= render partial: 'profile/bio_profile' %>
+  <div>
+    <h1> <%= @profile.first_name %> <%= @profile.last_name %></h1>
 
-
-
-
-  <%= image_tag(@profile.qr_code) %>
+  <%= image_tag(@profile.qr_code) if @profile.qr_code.attached?   %>
+  </div>
 
 </div>

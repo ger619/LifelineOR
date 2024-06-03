@@ -10,7 +10,6 @@ class User < ApplicationRecord
 
   def create_profile
     Profile.create(user_id: id)
-    Bio.create(user_id: id)
   end
 
   has_one :bio, foreign_key: :user_id, class_name: 'Bio', dependent: :destroy
