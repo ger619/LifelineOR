@@ -19,7 +19,7 @@ class Profile < ApplicationRecord
                      action: 'show',
                      id:,
                      only_path: false,
-                     host: 'https://127.0.0.1/',
+                     host: 'https://www.lifelinerecords.org/',
                      source: 'from_qr')
     qrcode = RQRCode::QRCode.new(qr_url)
 
