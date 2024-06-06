@@ -84,6 +84,6 @@ gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
 gem 'tinymce-rails'
 
+gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'font-awesome-sass', '~> 6.5.1'
 gem 'phonelib', '~> 0.8.4'
-gem 'cloudinary', '~> 1.2', '>= 1.2.2'
