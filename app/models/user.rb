@@ -12,8 +12,7 @@ class User < ApplicationRecord
     Profile.create(user_id: id)
   end
 
-  has_one :bio, foreign_key: :user_id, class_name: 'Bio', dependent: :destroy
-  has_one :profile, foreign_key: :user_id, class_name: 'Profile', dependent: :destroy
+  has_one :next, foreign_key: :user_id, class_name: 'Next', dependent: :destroy
   has_one :profile, foreign_key: :user_id, class_name: 'Profile', dependent: :destroy
 
   has_many :exist, foreign_key: :user_id, class_name: 'Exist', dependent: :destroy
