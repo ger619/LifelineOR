@@ -1,11 +1,11 @@
-<div class="p-4 sm:ml-64">
-  <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
+<div class="p-4 sm:ml-64 bg-white">
+<div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
     <div class="grid md:grid-cols-3 gap-4 mb-4">
       <div class="flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800">
         <% if @profile.avatar.attached? %>
-          <%= image_tag(@profile.avatar, class: "h-48 rounded") %>
+          <%= image_tag @profile.avatar, class: "h-48 rounded" %>
         <% else %>
-          <%= image_tag('logo.png', class: "h-48 rounded") %>
+          <%= image_tag 'logo.png', class: "h-48 rounded" %>
         <% end %>
       </div>
       <div class="flex p-4 rounded bg-gray-50 dark:bg-gray-800">
@@ -13,7 +13,7 @@
       </div>
       <div class="hidden md:flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800 ">
         <p class="text-2xl text-gray-400 dark:text-gray-500">
-          <%= image_tag(@profile.qr_code, class: 'h-48 rounded') if @profile.qr_code.attached?   %>
+          <%= image_tag @profile.qr_code, class: 'h-48 rounded' if @profile.qr_code.attached?   %>
         </p>
       </div>
     </div>
