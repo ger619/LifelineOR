@@ -3,6 +3,8 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :qr_code
 
+  has_rich_text :content
+
   def age
     return unless date_of_birth.present?
 

@@ -2,3 +2,5 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 //= require tinymce
+import "trix"
+import "@rails/actiontext"

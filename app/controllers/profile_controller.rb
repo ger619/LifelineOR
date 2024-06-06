@@ -54,7 +54,7 @@ class ProfileController < ApplicationController
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :home_address, :phone_number, :occupation, :location,
                                     :avatar, :user_id, :qr_code, :date_of_birth, :language, :home_town, :city, :country,
-                                    :about_me, :health_insurance, :nhif_number, :nationality, :religion, :blood_group,
+                                    :content, :health_insurance, :nhif_number, :nationality, :religion, :blood_group,
                                     :hospital_to_attend)
   end
 end
