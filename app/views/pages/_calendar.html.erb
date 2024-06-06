@@ -1,5 +1,5 @@
 <div class="flex flex-col  items-center rounded bg-gray-50 dark:bg-gray-800 p-[5%]">
-  <div class="text-sm  text-gray-800 dark:text-gray-500 text-center md:w-full w-1/2" >
+  <div class="text-sm  text-gray-800 dark:text-gray-500 text-center min-w-full" >
     <!-- styling for Calender using tailwinds css -->
     <%= month_calendar(events: @consultations) do |date, consultations| %>
         <%= date.day %>

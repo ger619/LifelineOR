@@ -2,7 +2,11 @@
   <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700">
     <div class="grid md:grid-cols-3 gap-4 mb-4">
       <div class="flex items-center justify-center rounded bg-gray-50 dark:bg-gray-800">
-        <%= image_tag(@profile.avatar, class: 'h-48 rounded') %>
+        <% if @profile.avatar.attached? %>
+          <%= image_tag(@profile.avatar, class: "h-48 rounded") %>
+        <% else %>
+          <%= image_tag('logo.png', class: "h-48 rounded") %>
+        <% end %>
       </div>
       <div class="flex p-4 rounded bg-gray-50 dark:bg-gray-800">
         <%= render partial: 'bio_details' %>
