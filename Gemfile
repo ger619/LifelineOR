@@ -51,7 +51,7 @@ gem 'bootsnap', require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem 'image_processing', '~> 1.2'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -75,15 +75,12 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-gem 'devise', '~> 4.9'
-
 gem 'cancancan'
+gem 'cloudinary', '~> 1.2', '>= 1.2.2'
+gem 'devise', '~> 4.9'
 gem 'devise-two-factor', '~> 5.0'
+gem 'font-awesome-sass', '~> 6.5.1'
+gem 'phonelib', '~> 0.8.4'
 gem 'rqrcode'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
-gem 'tinymce-rails'
-
-gem 'cloudinary', '~> 1.2', '>= 1.2.2'
-gem 'font-awesome-sass', '~> 6.5.1'
-gem 'phonelib', '~> 0.8.4'
