@@ -82,7 +82,6 @@ gem 'devise-two-factor', '~> 5.0'
 gem 'rqrcode'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
-gem 'tinymce-rails'
 
 gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'font-awesome-sass', '~> 6.5.1'
