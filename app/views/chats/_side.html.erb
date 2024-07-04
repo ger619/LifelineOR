@@ -1,10 +1,13 @@
 <div class="w-64 p-4 h-screen text-white bg-blue-800 sticky top-0">
   <div class="">
     <div class="mt-3">
+      <%= render 'search' %>
       <h4>Today: </h4>
       <turbo-frame id="user-chats">
         <%= render partial: 'chats/chat_list', collection: current_user.chat.reverse if current_user %>
       </turbo-frame>
     </div>
+
+
   </div>
 </div>
