@@ -1,5 +1,10 @@
+
 Rails.application.routes.draw do
+  resources :chats
+  resources :charts
   root "pages#index"
+  #root "home#index"
+
   get 'pages/index'
   devise_for :users, controllers:
     { registrations: 'users/registrations',
@@ -22,4 +27,6 @@ Rails.application.routes.draw do
   resources :next
   resources :exist
   resources :page
+  resources :home
+  resources :chat
 end

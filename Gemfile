@@ -84,3 +84,8 @@ gem 'phonelib', '~> 0.8.4'
 gem 'rqrcode'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'simple_calendar', '~> 2.4'
+
+gem 'annotate', '~> 3.2', group: :development
+gem 'letter_opener', '~> 1.10', group: :development
+
+gem 'ruby-openai', '~> 7.1'
