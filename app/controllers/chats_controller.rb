@@ -5,9 +5,9 @@ class ChatsController < ApplicationController
   # GET /chats or /chats.json
   def index
     @chats = Chat.none
-    return unless current_user.chat.any?
+    return unless current_user.chats.any?
 
-    redirect_to chat_url(current_user.chat.last)
+    redirect_to chat_url(current_user.chats.last)
   end
 
   # GET /chats/1 or /chats/1.json
@@ -48,6 +48,7 @@ class ChatsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @chat.errors, status: :unprocessable_entity }
       end
+      format.turbo_stream
     end
   end
 
@@ -70,6 +71,6 @@ class ChatsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def chat_params
-    params.require(:chat).permit(:user_id, :history, :q_and_a)
+    params.require(:chat).permit(:message)
   end
 end
