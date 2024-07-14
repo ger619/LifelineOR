@@ -4,7 +4,7 @@ class Chat < ApplicationRecord
 
   def message=(message)
     messages = [
-      { 'role' => 'system', content: message }
+      { 'role' => 'system', 'content' => message }
     ]
 
     response_raw = client.chat(
@@ -19,6 +19,8 @@ class Chat < ApplicationRecord
       }
     )
     Rails.logger.debug response_raw
+    response = JSON.parse(response_raw.to_json, object_class: OpenStruct)
+    q_and_a << [messages, response.choices[0].message.content]
   end
 
   private
