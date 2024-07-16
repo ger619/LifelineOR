@@ -1,1 +1,14 @@
-<%= chat_list.id %>
+<div>
+  <% if @chat.q_and_a.present? %>
+    <% @chat.q_and_a.each do |question, _answer| %>
+      <div>
+        <p><%= truncate(question, :length => 50) %></p>
+      </div>
+    <% end %>
+    <% else %>
+    <p><%= chat_list.id %></p>
+<% end %>
+
+
+
+</div>
