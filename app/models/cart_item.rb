@@ -4,7 +4,7 @@ class CartItem < ApplicationRecord
   belongs_to :cart
 
   # validations
-  validates :product_id, uniqueness: { scope: :cart_id, message: "can only be added once per cart" }
+  validates :product_id, uniqueness: { scope: :cart_id, message: 'can only be added once per cart' }
 
   # instance methods
   def increment_quantity
