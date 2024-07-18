@@ -75,12 +75,19 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'annotate', '~> 3.2', group: :development
 gem 'cancancan'
 gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'devise', '~> 4.9'
 gem 'devise-two-factor', '~> 5.0'
+gem 'dotenv-rails', '~> 3.1', groups: %i[development test]
 gem 'font-awesome-sass', '~> 6.5.1'
+gem 'letter_opener', '~> 1.10', group: :development
 gem 'phonelib', '~> 0.8.4'
 gem 'rqrcode'
+gem 'ruby-openai', '~> 7.1'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
+gem 'sentry-rails'
+gem 'sentry-ruby'
 gem 'simple_calendar', '~> 2.4'
+gem 'stackprof'

@@ -1,0 +1,19 @@
+<div class=" sm:ml-64 bg-white">
+  <div class="rounded-lg mt-14">
+
+  <% content_for :title, "Chats" %>
+
+  <!-- Search-->
+    <%= render 'search' %>
+
+
+  <div id="chats" class="min-w-full">
+    <% @chats.each do |chat| %>
+      <%= render chat %>
+      <p>
+        <%= link_to "Show this chat", chat, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      </p>
+    <% end %>
+  </div>
+</div>
+</div>

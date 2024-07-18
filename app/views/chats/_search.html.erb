@@ -1,0 +1,11 @@
+<nav class="flex">
+  <%= render 'side' %>
+  <div class="w-full p-2 mx-auto">
+    <div class="max-w-full mx-auto mt-3">
+
+      <%= render partial: @chat if @chat.present? %>
+    </div>
+  </div>
+
+
+</nav>
