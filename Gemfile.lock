@@ -190,7 +190,6 @@ GEM
     net-smtp (0.5.0)
       net-protocol
     netrc (0.11.0)
-    newrelic_rpm (9.11.0)
     nio4r (2.7.3)
     nokogiri (1.16.6-x86_64-darwin)
       racc (~> 1.4)
@@ -366,7 +365,6 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   letter_opener (~> 1.10)
-  newrelic_rpm
   pg (~> 1.1)
   phonelib (~> 0.8.4)
   puma (~> 5.0)
