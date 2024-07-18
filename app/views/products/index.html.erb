@@ -1,23 +1,17 @@
 <div class="mx-auto md:w-2/3 p-4 sm:ml-64">
-  <% if notice.present? %>
-    < class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <% content_for :title, "Products" %>
-
 
   <div id="products" class="grid lg:grid-cols-4 md:grid-cols-2">
     <% @products.each do |product| %>
       <div>
         <%= render product %>
         <% if product_in_cart?(product) %>
-        <div class="flex items-center justify-between">
-        <%= button_to "-", add_to_cart_path(product), method: :post, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          <div class="flex items-center justify-between">
+            <%= button_to "-", decrement_path(product), method: :patch, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 
-        <%= cart_item(product).quantity  %>
+            <%= cart_item(product).quantity  %>
 
-        <%= button_to "+", add_to_cart_path(product), method: :post, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-        </div>
+            <%= button_to "+", increment_path(product), method: :patch, class: "mt-3   rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+          </div>
 
         <% else %>
           <%= button_to "Add to Cart", add_to_cart_path(product), method: :post, class: "mt-3 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>

@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :exist
   resources :page
   resources :carts, only: :show
-  resources :cart_items
 
   post 'cart_items/:product_id', to: "cart_items#create", as: 'add_to_cart'
+  patch 'cart_items/:product_id/increment', to: "cart_items#increment", as: 'increment'
+  patch 'cart_items/:product_id/decrement', to: "cart_items#decrement", as: 'decrement'
+
 end
