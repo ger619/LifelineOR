@@ -1,7 +1,7 @@
 databases:
   - name: Lifeline
     databaseName: Lifeline
-    user: lifeline
+    user: Lifeline
     plan: free
 
 services:
