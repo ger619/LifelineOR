@@ -7,5 +7,6 @@ class ApplicationController < ActionController::Base
   def set_cart
     @cart = current_user.cart
     @cart_items = @cart.cart_items
+    @cart_total = @cart_items.sum(&:total)
   end
 end
