@@ -23,4 +23,8 @@ Rails.application.routes.draw do
   resources :next
   resources :exist
   resources :page
+  resources :carts, only: :show
+  resources :cart_items
+
+  post 'cart_items/:product_id', to: "cart_items#create", as: 'add_to_cart'
 end
