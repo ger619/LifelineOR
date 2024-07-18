@@ -1,5 +1,4 @@
 class CartItemsController < ApplicationController
-  before_action :set_cart
   before_action :find_product
   before_action :set_cart_item, only: %i[increment decrement]
 
@@ -42,15 +41,11 @@ class CartItemsController < ApplicationController
 
   private
 
-  def set_cart
-    @cart = current_user.cart
-  end
-
   def find_product
     @product = Product.find(params[:product_id])
   end
 
   def set_cart_item
-    @cart_item = @cart.cart_items.find_by(product_id: @product.id)
+    @cart_item = @cart_items.find_by(product_id: @product.id)
   end
 end

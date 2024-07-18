@@ -1,6 +1,6 @@
-<div class="mx-auto md:w-2/3 p-4 sm:ml-64">
+<div class="p-4 sm:ml-64 grid grid-cols-2 gap-5">
 
-  <div id="products" class="grid lg:grid-cols-4 md:grid-cols-2">
+  <div id="products" class="grid lg:grid-cols-3 gap-4">
     <% @products.each do |product| %>
       <div>
         <%= render product %>
@@ -19,4 +19,6 @@
       </div>
     <% end %>
   </div>
+
+  <%= render 'cart' %>
 </div>

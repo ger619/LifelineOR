@@ -4,11 +4,11 @@
     <%= image_tag product.image, class: '' %>
   <% end %>
 
-  <p class="">
+  <p class="capitalize">
     <%= product.name %>
   </p>
 
-  <p class="capitalize">
+  <p class="capitalize font-medium">
     <%= number_to_currency(product.price, unit: "Ksh ", precision: 0, delimiter: ",", separator: ".") %>
   </p>
 

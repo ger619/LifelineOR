@@ -16,4 +16,8 @@ class CartItem < ApplicationRecord
     self.quantity -= 1
     save
   end
+
+  def total
+    product.price * quantity
+  end
 end
