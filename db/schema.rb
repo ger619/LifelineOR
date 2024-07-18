@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema[7.0].define(version: 2024_07_17_184617) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -127,6 +126,31 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_17_184617) do
     t.index ["user_id"], name: "index_nexts_on_user_id"
   end
 
+  create_table "orders", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "cart_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+  end
+
+  create_table "payments", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "transaction_id", null: false
+    t.string "reference_code"
+    t.string "channel"
+    t.string "currency"
+    t.string "amount"
+    t.string "receipt_number"
+    t.string "brand"
+    t.string "card_type"
+    t.string "bank"
+    t.string "mobile_money_number"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transaction_id"], name: "index_payments_on_transaction_id"
+  end
+
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false
     t.text "description"
@@ -157,6 +181,20 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_17_184617) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.integer "service"
+    t.string "email"
+    t.uuid "order_id", null: false
+    t.string "auth_url"
+    t.string "access_code"
+    t.string "reference_code"
+    t.integer "status"
+    t.string "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_transactions_on_order_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -182,5 +220,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_17_184617) do
   add_foreign_key "consultations", "users"
   add_foreign_key "exists", "users"
   add_foreign_key "nexts", "users"
+  add_foreign_key "orders", "carts"
+  add_foreign_key "payments", "transactions"
   add_foreign_key "profiles", "users"
+  add_foreign_key "transactions", "orders"
 end
