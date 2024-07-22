@@ -31,6 +31,9 @@ Rails.application.routes.draw do
 
   
   resources :carts, only: :show
+  resources :orders do
+    get 'checkout', on: :collection
+  end
 
   post 'cart_items/:product_id', to: "cart_items#create", as: 'add_to_cart'
   patch 'cart_items/:product_id/increment', to: "cart_items#increment", as: 'increment'

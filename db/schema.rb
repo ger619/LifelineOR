@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_22_063120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -131,6 +131,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "tracking_number"
     t.index ["cart_id"], name: "index_orders_on_cart_id"
   end
 
@@ -145,7 +146,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
     t.string "card_type"
     t.string "bank"
     t.string "mobile_money_number"
-    t.integer "status"
+    t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["transaction_id"], name: "index_payments_on_transaction_id"
@@ -181,14 +182,29 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "shipping_details", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "phone_number_1"
+    t.string "phone_number_2"
+    t.string "address"
+    t.string "additional_info"
+    t.string "region"
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_shipping_details_on_user_id"
+  end
+
   create_table "transactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.integer "service"
+    t.integer "service", default: 0
     t.string "email"
     t.uuid "order_id", null: false
     t.string "auth_url"
     t.string "access_code"
     t.string "reference_code"
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -223,5 +239,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_07_18_162518) do
   add_foreign_key "orders", "carts"
   add_foreign_key "payments", "transactions"
   add_foreign_key "profiles", "users"
+  add_foreign_key "shipping_details", "users"
   add_foreign_key "transactions", "orders"
 end

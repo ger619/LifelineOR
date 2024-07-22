@@ -11,7 +11,7 @@ class CreatePayments < ActiveRecord::Migration[7.0]
       t.string :card_type
       t.string :bank
       t.string :mobile_money_number
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps
     end
